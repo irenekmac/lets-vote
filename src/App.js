@@ -37,14 +37,14 @@ class App extends Component{
 				<div className="cuisines">
 					{
 						this.state.cuisines.map((food, i) =>
-							<div key={i} className="cuisines">
+							<div key={i} className="cuisine">
 								<div className="voteCount">
 									{food.votes}
 								</div>
 								<div className="cuisineName">
 									{food.name}
 								</div>
-								<button onClick={this.vote.bind(this, i)}>vote me!</button>
+								<button onClick={this.vote.bind(this, i)}>submit</button>
 							</div>
 						)
 					}
