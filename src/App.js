@@ -4,6 +4,16 @@ import './App.css';
 class App extends Component{
 	constructor(props){
 		super(props);
+    this.state = {
+			cuisines : [
+				{name: "Japanese", votes: 0},
+				{name: "Italian", votes: 0},
+				{name: "Thai", votes: 0},
+				{name: "Chinese", votes: 0},
+        {name: "Turkish", votes: 0},
+        {name: "Dessert", votes: 0}
+
+			]
 
 		}
 	}
@@ -34,7 +44,7 @@ class App extends Component{
 								<div className="cuisineName">
 									{food.name}
 								</div>
-								<button onClick={this.vote.bind(this, i)}>Click Here</button>
+								<button onClick={this.vote.bind(this, i)}>vote me!</button>
 							</div>
 						)
 					}
