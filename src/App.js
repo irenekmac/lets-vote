@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component{
+	constructor(props){
+		super(props);
 
+		}
+	}
+
+	vote (i) {
+		let newCuisine = [...this.state.cuisines];
+		newCuisine[i].votes++;
+		function swap(array, i, j) {
+			var temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
+		this.setState({cuisines: newCuisine});
+
+	}
+
+	render(){
+		return(
+			<>
+				<h1>Vote your favourite cuisine!</h1>
+				<div className="cuisines">
+					{
+						this.state.cuisines.map((food, i) =>
+							<div key={i} className="cuisines">
+								<div className="voteCount">
+									{food.votes}
+								</div>
+								<div className="cuisineName">
+									{food.name}
+								</div>
+								<button onClick={this.vote.bind(this, i)}>Click Here</button>
+							</div>
+						)
+					}
+				</div>
+			</>
+		);
+	}
+}
 export default App;
